@@ -34,9 +34,9 @@ import NavigationItem from './NavigationItem.vue'
 const navItems = ref([
   { label: "Home", path: "/", icon: "home" },
   { label: "About Me", path: "/about", icon: "person" },
-  { label: "Skills", path: "/skills", icon: "build" },
+ 
   { label: "Experience", path: "/experience", icon: "work" },
-  { label: "Education", path: "/education", icon: "school" },
+
   { label: "Contact", path: "/contact", icon: "mail" },
 ])
 

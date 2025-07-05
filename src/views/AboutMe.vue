@@ -1,57 +1,54 @@
 <template>
-  <section id="about" class="relative overflow-hidden py-20 bg-gray-900 text-white">
-    <!-- Background animation -->
-    <div class="absolute inset-0 z-0">
-      <div class="w-full h-full opacity-10 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 animate-gradient"></div>
-      <div class="absolute w-full h-full animate-pulse-particles"></div>
-    </div>
+    <section class="relative flex flex-col justify-between pt-20 items-center min-h-screen bg-gradient-to-r from-[#4a2a6f] via-[#6b46c1] to-[#4c51bf] p-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between bg-white bg-opacity-90 rounded-lg shadow-lg p-6 max-w-7xl">
+            <!-- Image Section -->
+            <div class="w-full md:w-1/3 p-4">
+                <div class="rounded-lg overflow-hidden">
+                    <img :src="profile" alt="Profile" class="w-full h-auto object-cover" />
+                </div>
+            </div>
 
-    <!-- Foreground content -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 bg-gray-100 p-10 rounded-md shadow-md">
-      <h2 class="text-3xl font-bold text-center mb-3 text-black hover:text-blue-600 ml-7">
-        About Me
-      </h2>
-
-      <div class="flex flex-col md:flex-row items-center justify-center gap-12">
-        <!-- Orbit Image -->
-        <div class="relative w-60 h-60 sm:w-72 sm:h-72">
-          <img
-            :src="profile"
-            alt="Sor Chhin"
-            class="rounded-full w-full h-full object-cover shadow-lg border-4 border-white z-10 relative"
-          />
-
+            <!-- About Me Section -->
+            <div class="w-full md:w-2/3 p-4">
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl font-bold text-purple-700 mb-4">About Me</h2>
+                    <p class="text-gray-700 mb-4">
+                        I am a second-year student at Passerelles Numériques Cambodia (PNC). I am qualified as a WEP
+                        intern, with experience in back-end, front-end, and website design projects completed during
+                        my studies. I'm passionate about creating user-friendly web solutions and am seeking internship
+                        opportunities to grow my skills.
+                    </p>
+                    <a :href="cvPath" download="CV-sor-chhin.pdf">
+                        <BaseButthon class="bg-purple-400 text-white px-4 py-2 rounded-full hover:bg-purple-600 transition duration-300">
+                            Download CV
+                        </BaseButthon>
+                    </a>
+                </div>
+                <!-- Interests -->
+                <div class="mt-4">
+          <h3 class="text-2xl    font-semibold mb-2">Interests</h3>
+          <div class="flex flex-wrap gap-2 ">
+            <span class="bg-gray-200 px-3 py-2 rounded-full">Researching</span>
+            <span class="bg-gray-200 px-3 py-2 rounded-full">Coding</span>
+            <span class="bg-gray-200 px-3 py-2 rounded-full">Reading(Book)</span>
+            <span class="bg-gray-200 px-3 py-2 rounded-full">Building communication</span>
+            <span class="bg-gray-200 px-3 py-2 rounded-full">Learning a new things</span>
+            <span class="bg-gray-200 px-3 py-2 rounded-full">Volunteering</span>
+          </div>
+        </div>
       
+            </div>
         </div>
-
-        <!-- Info -->
-        <div class="text-center md:text-left md:max-w-md space-y-4">
-          <p class="text-lg text-gray-800">
-            I am a second-year student at Passerelles Numériques Cambodia (PNC), passionate about front-end development.
-            My goal is to challenge myself in dynamic environments, enhance my skills, and contribute meaningfully to innovative teams.
-          </p>
-          <ul class="text-sm text-gray-700 space-y-1">
-            <li><strong>Name:</strong> Sor Chhin</li>
-            <li><strong>Date of Birth:</strong> May 10, 2004</li>
-            <li><strong>Gender:</strong> Female</li>
-            <li><strong>Province:</strong> Kampot</li>
-            <li><strong>Nationality:</strong> Khmer</li>
-            <li><strong>Marital Status:</strong> Single</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Interests -->
-    <div class="flex justify-center mt-12" data-aos="slide-up" data-aos-delay="800">
-      <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-xl">
-        <h3 class="text-2xl font-semibold text-black mb-4 text-center">Interests</h3>
-        <div class="flex flex-wrap justify-center gap-2">
-          <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm">Researching</span>
-          <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm">Coding</span>
-          <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm">Learning</span>
-          <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm">Reading</span>
-          <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm">Volunteering</span>
+    </section>
+ <section class="bg-gradient-to-r from-[#4a2a6f] via-[#6b46c1] to-[#4c51bf] pb-9">
+    <div id="app" class="container mx-auto p-4">
+      <div class="flex flex-col items-center space-y-4">
+        <h1 class="text-2xl font-bold">Skills</h1>
+        <div class="flex flex-wrap justify-center gap-20">
+          <div v-for="tool in tools" :key="tool.name" class="flex flex-col font-bold items-center">
+            <img :src="tool.icon" alt="Icon" class="w-16 h-16 bounce-continuously">
+            <p class="mt-2 text-center">{{ tool.name }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -59,41 +56,32 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-const profile = ref(new URL('@/assets/images/me.jpg', import.meta.url).href)
+// import BaseButthon from '@/components/common/BaseButton.vue';
+import { ref } from 'vue';
+// import Skills from '@/components/Layouts/Skills.vue'
+ const tools = ref([
+          { name: 'JavaScript', icon: 'https://cdn-icons-png.flaticon.com/128/5968/5968292.png' },
+          { name: 'HTML', icon: 'https://cdn-icons-png.flaticon.com/128/174/174854.png' },
+          { name: 'CSS', icon: 'https://cdn-icons-png.flaticon.com/128/919/919826.png' },
+          { name: 'PHP', icon: 'https://cdn-icons-png.flaticon.com/128/5968/5968332.png' },
+          { name: 'Node js', icon: 'https://cdn-icons-png.flaticon.com/128/15484/15484303.png' },
+          { name: 'OOP(TypeScript)', icon: 'https://cdn-icons-png.flaticon.com/128/5968/5968381.png' }, // Fixed typo from 'CapCus' to 'CapCut'
+          { name: 'Vue js', icon: 'https://cdn-icons-png.flaticon.com/128/15484/15484278.png' },
+          { name: 'Laravel', icon: 'https://avatars.githubusercontent.com/u/958072?s=280&v=4' },
+        ]);
+
+        // return { tools };
+      
+const profile = ref(new URL('@/assets/images/me.jpg', import.meta.url).href);
+const cvPath = ref(new URL('@/assets/cv/CV-sor-chhin.pdf', import.meta.url).href);
 </script>
 
 <style scoped>
-@keyframes spin-slow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes pulse-particles {
-  0%, 100% {
-    background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 30px 30px;
-    opacity: 0.1;
-  }
-  50% {
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 40px 40px;
-    opacity: 0.2;
-  }
-}
-
-.animate-gradient {
-  background-size: 300% 300%;
-  animation: gradient 10s ease infinite;
-}
-
-.animate-pulse-particles {
-  animation: pulse-particles 5s ease-in-out infinite;
-}
+@keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .bounce-continuously {
+      animation: bounce 1.5s ease-in-out infinite;
+    }
 </style>

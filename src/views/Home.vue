@@ -1,5 +1,5 @@
 <template>
-    <section class="relative overflow-hidden h-100 text-white bg-gradient-to-b from-[#1e1832] to-[#221d3a] py-16">
+    <section class="relative overflow-hidden h-full text-white bg-gradient-to-b from-[#2d1b4e] to-[#4a2a6f] py-16">
         <!-- 🌈 Animated Background -->
         <div class="absolute inset-0 z-0 opacity-90"></div>
 
@@ -20,13 +20,15 @@
 
         <!-- 🧑‍💻 Content -->
         <div
-            class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center mt-20">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="zoom-in" data-aos-delay="200">
+            class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-start mt-10 mr-50">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 " data-aos="zoom-in" data-aos-delay="200">
                 Sor Chhin
             </h1>
-            <p class="text-xl mb-6" data-aos="fade-up" data-aos-delay="400">
+            <p class="text-xl " data-aos="fade-up" data-aos-delay="400">
                 Front-end Intern | Web Developer
             </p>
+            <p class="text-justify mb-7">I am eager to challenge myself in a new environment where I
+            can continue learning, growing,<br> and applying my skills through hands-on projects.</p>
             <a href="#contact"
                 class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition mb-6 flex items-center gap-2"
                 data-aos="fade-up" data-aos-delay="600">
@@ -36,11 +38,11 @@
             <div class="flex gap-4" data-aos="fade-up" data-aos-delay="800">
                 <a href="https://www.facebook.com" target="_blank"
                     class="bg-white text-[#2c71a5] p-3 rounded-full hover:bg-gray-100 transition">
-                    <img  src="https://en.followersnet.com/wp-content/uploads/2016/02/Facebook-1.png" alt="Facebook" class="w-6 font-3xl h-6">
+                    <img  src="https://cdn-icons-png.flaticon.com/128/15047/15047435.png" alt="Facebook" class="w-6 font-3xl h-6">
                 </a>
                 <a href="https://www.linkedin.com/in/sor-chhin-94112a345/" target="_blank"
                     class="bg-white text-indigo-600 p-3 rounded-full hover:bg-gray-100 transition">
-                    <img src="https://static.vecteezy.com/system/resources/previews/023/986/970/non_2x/linkedin-logo-linkedin-logo-transparent-linkedin-icon-transparent-free-free-png.png" alt="LinkedIn" class="w-6 h-6">
+                    <img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" alt="LinkedIn" class="w-6 h-6">
                 </a>
                 <a href="mailto:your.email@example.com"
                     class="bg-white text-indigo-600 p-3 rounded-full hover:bg-gray-100 transition">
@@ -48,13 +50,16 @@
                 </a>
                 <a href="https://t.me/SOR_CHHIN" target="_blank"
                     class="bg-white text-indigo-600 p-3 rounded-full hover:bg-gray-100 transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/1200px-Telegram_2019_Logo.svg.png" alt="Telegram" class="w-6 h-6">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2111/2111646.png" alt="Telegram" class="w-6 h-6">
                 </a>
             </div>
+            
         </div>
     </section>
 
     <AboutMe />
+    <Skills/>
+    
 </template>
 
 <script setup>
@@ -77,16 +82,15 @@ import AboutMe from './AboutMe.vue';
 }
 
 @keyframes pulse-particles {
-
     0%,
     100% {
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        /* background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px); */
         background-size: 30px 30px;
         opacity: 0.1;
     }
 
     50% {
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        /* background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px); */
         background-size: 40px 40px;
         opacity: 0.2;
     }
