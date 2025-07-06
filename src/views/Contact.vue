@@ -1,9 +1,9 @@
 <template>
-      <section id="contact" class="py-16" data-aos="fade-up" data-aos-duration="1000">
+      <section id="contact" class=" bg-gradient-to-r from-[#4a2a6f] via-[#6b46c1] to-[#4c51bf] py-16" data-aos="fade-up" data-aos-duration="1000">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-down" data-aos-delay="200">Contact</h2>
+            <h2 class="text-3xl font-bold text-center mb-8 text-white" data-aos="fade-down" data-aos-delay="200">Contact</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-right" data-aos-delay="400">
+                <div class="bg-white p-6 rounded-lg shadow-md transition" data-aos="fade-right" data-aos-delay="400">
                     <h3 class="text-xl font-semibold mb-4">Get in Touch</h3>
                     <p><strong>Phone:</strong> +855 86 266 156</p>
                     <p><strong>Email:</strong> sor.chhin@student.passerellesnumeriques.org</p>

@@ -1,60 +1,42 @@
 <template>
-  <section id="experience" class="py-16 bg-gradient-to-r from-[#4a2a6f] via-[#6b46c1] to-[#4c51bf]" data-aos="fade-up" data-aos-duration="1000">
+  <section id="experience" class="py-16 bg-gradient-to-r from-[#4a2a6f] via-[#6b46c1] to-[#4c51bf]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-8 text-white" data-aos="fade-down" data-aos-delay="200">
+      <h2 class="text-3xl font-bold text-center mb-8 text-white fade-up">
         Experience
       </h2>
 
       <!-- Filter Buttons -->
-      <div class="flex flex-wrap gap-2 mb-6 justify-center">
-        <button
-          v-for="cat in categories"
-          :key="cat"
-          @click="selectedCategory = cat"
-          :class="[
-            'p-3 border rounded-md shadow-md text-white transition-all duration-300',
-            selectedCategory === cat
-              ? 'bg-gradient-to-r from-purple-700 to-indigo-700'
-              : 'bg-gradient-to-b from-[#1e1832] to-[#221d3a] hover:bg-opacity-90'
-          ]"
-          @mouseover="hoverEffect(cat)"
-        >
+      <div class="flex  gap-2 mb-6 justify-center fade-up">
+        <button v-for="cat in categories" :key="cat" @click="selectedCategory = cat" :class="[
+          'p-3 border rounded-md shadow-md text-white transition-all duration-300',
+          selectedCategory === cat
+            ? 'bg-gradient-to-r from-purple-700 to-indigo-700'
+            : 'bg-gradient-to-b from-[#1e1832] to-[#221d3a] hover:bg-opacity-90'
+        ]" @mouseover="hoverEffect(cat)">
           {{ cat }}
         </button>
       </div>
 
       <!-- Experience Cards -->
-      <div class="space-y-8">
-        <CardExperience
-          v-for="(exp, index) in filteredExperiences"
-          :key="index"
-          :title="exp.title"
-          :date="exp.date"
-          :role="exp.role"
-          :details="exp.details"
-          :demoLink="exp.demo"
-          :codeLink="exp.code"
-          :delay="index * 200 + 400",
-         
-          class="tech-card"
-        />
+      <div class="space-y-3 flex flex-wrap gap-9 justify-center">
+        <CardExperience v-for="(exp, index) in filteredExperiences" :key="index" :image="exp.image" :title="exp.title"
+          :date="exp.date" :role="exp.role" :details="exp.details" :demoLink="exp.demo" :codeLink="exp.code"
+          class="tech-card fade-up w-90 " />
       </div>
     </div>
   </section>
-  
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { onMounted, ref, computed } from 'vue';
 import CardExperience from '@/components/common/CardExperience.vue';
 
-// Available categories
 const categories = ['ALL Experiences', 'Interviews', 'School Project'];
 const selectedCategory = ref('ALL Experiences');
 
-// Updated sample experience data with corrected dates
 const experiences = [
   {
+    image: "https://i.pinimg.com/736x/e8/a7/73/e8a773ad8e8dfde46b074a69942242d0.jpg",
     title: 'Note Taker App',
     date: 'Jan 12, 2024 - Jan 26, 2024',
     role: 'Developer',
@@ -68,9 +50,11 @@ const experiences = [
     code: '#',
   },
   {
+    image: "https://i.pinimg.com/736x/e8/a7/73/e8a773ad8e8dfde46b074a69942242d0.jpg",
+
     title: 'Software Deployment',
-    date: 'Dec 30, 2024 - Jan 6, 2025', // Corrected end date
-    category: 'Interviews',
+    date: 'Dec 30, 2024 - Jan 6, 2025',
+    category: 'School Project',
     details: [
       'Hosted static website on AWS.',
       'Deployed WordPress website on Ubuntu server.',
@@ -79,6 +63,8 @@ const experiences = [
     code: '#',
   },
   {
+    image: "https://i.pinimg.com/736x/e8/a7/73/e8a773ad8e8dfde46b074a69942242d0.jpg",
+
     title: 'Automated Document Generation',
     date: 'Oct 11, 2024 - Nov 20, 2024',
     role: 'Developer',
@@ -92,6 +78,7 @@ const experiences = [
     code: '#',
   },
   {
+    image: "https://i.pinimg.com/736x/e8/a7/73/e8a773ad8e8dfde46b074a69942242d0.jpg",
     title: 'Web Design (Clinic Service Websites)',
     date: 'Oct 17, 2024 - Nov 6, 2024',
     role: 'Team Leader',
@@ -101,12 +88,39 @@ const experiences = [
       'Built responsive websites with HTML, SASS, and CSS.',
       'Focused on user-friendly layout and accessibility.',
     ],
-    demo: '#',
-    code: '#',
+    demo: 'https://clinic-service-a6.netlify.app/',
+    code: 'http://github.com/darinhoy/clinic-service-A6',
   },
+   {
+    image: "https://i.pinimg.com/736x/e8/a7/73/e8a773ad8e8dfde46b074a69942242d0.jpg",
+    title: 'School management system',
+    date: 'Oct 17, 2024 - Nov 6, 2024',
+    role: 'Team Leader',
+    category: 'School Project',
+    details: [
+      'Used OOP(TypeScript)',
+      'Showed console.log for display the result',
+      'Developed using Principle of OOP',
+    ],
+    demo: 'https://clinic-service-a6.netlify.app/',
+    code: 'http://github.com/darinhoy/clinic-service-A6',
+  },
+   {
+    image: "https://i.pinimg.com/736x/e8/a7/73/e8a773ad8e8dfde46b074a69942242d0.jpg",
+    title: 'Web Design (Clinic Service Websites)',
+    date: 'Oct 17, 2024 - Nov 6, 2024',
+    role: 'Team Leader',
+    category: 'School Project',
+    details: [
+      'Designed UI using Figma.',
+      'Built responsive websites with HTML, SASS, and CSS.',
+      'Focused on user-friendly layout and accessibility.',
+    ],
+    demo: 'https://clinic-service-a6.netlify.app/',
+    code: 'http://github.com/darinhoy/clinic-service-A6',
+  }
 ];
 
-// Computed filter
 const filteredExperiences = computed(() => {
   if (selectedCategory.value === 'ALL Experiences') {
     return experiences;
@@ -114,17 +128,43 @@ const filteredExperiences = computed(() => {
   return experiences.filter((exp) => exp.category === selectedCategory.value);
 });
 
-// Hover effect for buttons (optional techy feedback)
 const hoverEffect = (cat) => {
   if (selectedCategory.value !== cat) {
     console.log(`Hovered over ${cat}`);
-    // Add more complex effects (e.g., scale) if desired
   }
 };
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+});
 </script>
 
 <style scoped>
-/* Tech-themed animation for cards */
+/* Fade-up animation on scroll */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card hover effect */
 .tech-card {
   transition: all 0.3s ease;
   position: relative;
@@ -134,7 +174,7 @@ const hoverEffect = (cat) => {
 .tech-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(135deg, #6b46c1, #4c51bf);
+  /* background: linear-gradient(135deg, #6b46c1, #4c51bf); */
 }
 
 .tech-card:hover h3,
@@ -158,13 +198,11 @@ const hoverEffect = (cat) => {
   left: 100%;
 }
 
-/* Ensure text readability */
 .tech-card * {
   position: relative;
   z-index: 1;
 }
 
-/* Button hover effect enhancement */
 button:hover {
   transform: scale(1.05);
 }

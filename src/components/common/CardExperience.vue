@@ -1,29 +1,45 @@
 <template>
-  <div
-    class="bg-white p-6 rounded-lg shadow-md"
-    :data-aos="'fade-up'"
-    :data-aos-delay="delay"
-  >
+  <div class="bg-white p-6 rounded-lg shadow-md">
+    <div class="rounded-md mb-4">
+      <img :src="image" alt="Experience Image" class="w-full h-auto rounded-md" />
+    </div>
     <h3 class="text-xl font-semibold">{{ title }}</h3>
-    <p class="text-gray-600">{{ date }}<span v-if="role"> | {{ role }}</span></p>
+    <p class="text-gray-600">
+      {{ date }}
+      <span v-if="role"> | {{ role }}</span>
+    </p>
     <ul class="list-disc pl-6 mt-2">
       <li v-for="(item, idx) in details" :key="idx">{{ item }}</li>
     </ul>
     <div class="flex space-x-4 mt-4">
-      <base-butthon v-if="demoLink">Demo</base-butthon>
-      <base-butthon v-if="codeLink">GitHub</base-butthon>
+      <a
+        v-if="demoLink"
+        :href="demoLink"
+        target="_blank"
+        class="bg-purple-600 p-2 rounded-md shadow-md text-white hover:bg-purple-700 transition"
+      >
+        Demo
+      </a>
+      <a
+        v-if="codeLink"
+        :href="codeLink"
+        target="_blank"
+        class="bg-purple-600 p-2 rounded-md shadow-md text-white hover:bg-purple-700 transition"
+      >
+        GitHub
+      </a>
     </div>
   </div>
 </template>
 
 <script setup>
 defineProps({
+  image: String,
   title: String,
   date: String,
   role: String,
   details: Array,
   demoLink: String,
   codeLink: String,
-  delay: Number,
 });
 </script>
