@@ -23,14 +23,13 @@ import CardExperience from '@/components/common/CardExperience.vue';
 
 const categories = ['ALL Experiences', 'Interviews', 'School Project'];
 const selectedCategory = ref('ALL Experiences');
-import noteAppImage from '@/assets/images/note-app.png'
-import clinic from '@/assets/images/clinic.png'
+
 
 
 
 const experiences = [
  {
-  image: noteAppImage,
+  image: 'src/assets/images/note-app.png',
   title: 'Note Taker App',
   date: 'Jan 12, 2024 - Jan 26, 2024',
   role: 'Developer',
@@ -100,7 +99,7 @@ const experiences = [
     code: 'http://github.com/darinhoy/clinic-service-A6',
   },
    {
-    image: clinic,
+    image: 'src/assets/images/clinic.png',
     title: 'Web Design (Clinic Service Websites)',
     date: 'Oct 17, 2024 - Nov 6, 2024',
     role: 'Team Leader',
