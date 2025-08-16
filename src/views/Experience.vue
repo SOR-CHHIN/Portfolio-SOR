@@ -21,6 +21,11 @@
           <ul class="list-disc pl-6 mt-2 space-y-1">
             <li v-for="(task, tIndex) in exp.details" :key="tIndex">{{ task }}</li>
           </ul>
+
+          <div class="flex mt-3">
+          <button class="p-3 bg-purple-300 rounded-md mr-6">Code</button>
+          <button class="p-3 bg-purple-300 rounded-md">Demo</button>
+        </div>
         </div>
       </div>
     </div>
