@@ -5,46 +5,53 @@
         Experience
       </h2>
 
-  
-
       <!-- Experience Cards -->
       <div class="space-y-3 flex flex-wrap gap-9 justify-center">
-        <CardExperience v-for="(exp, index) in filteredExperiences" :key="index" :image="exp.image" :title="exp.title"
-          :date="exp.date" :role="exp.role" :details="exp.details" :demoLink="exp.demo" :codeLink="exp.code"
-          class="tech-card fade-up w-90 " />
+        <CardExperience
+          v-for="(exp, index) in filteredExperiences"
+          :key="index"
+          :image="exp.image"
+          :title="exp.title"
+          :date="exp.date"
+          :role="exp.role"
+          :details="exp.details"
+          :demoLink="exp.demo"
+          :codeLink="exp.code"
+          class="tech-card fade-up w-90"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { onMounted, ref, computed } from 'vue';
-import CardExperience from '@/components/common/CardExperience.vue';
+import { onMounted, ref, computed } from 'vue'
+import CardExperience from '@/components/common/CardExperience.vue'
 
-const categories = ['ALL Experiences', 'Interviews', 'School Project'];
-const selectedCategory = ref('ALL Experiences');
+// ✅ Import local images
+import noteAppImg from '@/assets/images/note-app.png'
+import clinicImg from '@/assets/images/clinic.png'
 
-
-
+const categories = ['ALL Experiences', 'Interviews', 'School Project']
+const selectedCategory = ref('ALL Experiences')
 
 const experiences = [
- {
-  image: 'src/assets/images/note-app.png',
-  title: 'Note Taker App',
-  date: 'Jan 12, 2024 - Jan 26, 2024',
-  role: 'Developer',
-  category: 'School Project',
-  details: [
-    'Designed UI using Figma.',
-    'Implemented front-end with HTML, CSS, Bootstrap, and JavaScript.',
-    'Used Git and GitHub for version control.',
-  ],
-  demo: 'https://note-taker-app-group5.netlify.app/',
-  code: 'https://github.com/Sokleap-Seng/project-Note-Taker-G5',
-},
   {
-    image: "https://i.pinimg.com/736x/e8/a7/73/e8a773ad8e8dfde46b074a69942242d0.jpg",
-
+    image: noteAppImg,
+    title: 'Note Taker App',
+    date: 'Jan 12, 2024 - Jan 26, 2024',
+    role: 'Developer',
+    category: 'School Project',
+    details: [
+      'Designed UI using Figma.',
+      'Implemented front-end with HTML, CSS, Bootstrap, and JavaScript.',
+      'Used Git and GitHub for version control.',
+    ],
+    demo: 'https://note-taker-app-group5.netlify.app/',
+    code: 'https://github.com/Sokleap-Seng/project-Note-Taker-G5',
+  },
+  {
+    image: 'https://i.pinimg.com/736x/e8/a7/73/e8a773ad8e8dfde46b074a69942242d0.jpg',
     title: 'Software Deployment',
     date: 'Dec 30, 2024 - Jan 6, 2025',
     category: 'School Project',
@@ -56,8 +63,7 @@ const experiences = [
     code: '#',
   },
   {
-    image: "https://i.pinimg.com/736x/e8/a7/73/e8a773ad8e8dfde46b074a69942242d0.jpg",
-
+    image: 'https://i.pinimg.com/736x/e8/a7/73/e8a773ad8e8dfde46b074a69942242d0.jpg',
     title: 'Automated Document Generation',
     date: 'Oct 11, 2024 - Nov 20, 2024',
     role: 'Developer',
@@ -71,7 +77,7 @@ const experiences = [
     code: '#',
   },
   {
-    image: "https://i.pinimg.com/736x/e8/a7/73/e8a773ad8e8dfde46b074a69942242d0.jpg",
+    image: clinicImg,
     title: 'Web Design (Clinic Service Websites)',
     date: 'Oct 17, 2024 - Nov 6, 2024',
     role: 'Team Leader',
@@ -84,65 +90,58 @@ const experiences = [
     demo: 'https://clinic-service-a6.netlify.app/',
     code: 'http://github.com/darinhoy/clinic-service-A6',
   },
-   {
-    image: "https://i.pinimg.com/736x/e8/a7/73/e8a773ad8e8dfde46b074a69942242d0.jpg",
-    title: 'School management system',
+  {
+    image: 'https://i.pinimg.com/736x/e8/a7/73/e8a773ad8e8dfde46b074a69942242d0.jpg',
+    title: 'School Management System',
     date: 'Oct 17, 2024 - Nov 6, 2024',
     role: 'Team Leader',
     category: 'School Project',
     details: [
-      'Used OOP(TypeScript)',
-      'Showed console.log for display the result',
-      'Developed using Principle of OOP',
+      'Used OOP(TypeScript).',
+      'Showed console.log for display the result.',
+      'Developed using Principle of OOP.',
     ],
-    demo: 'https://clinic-service-a6.netlify.app/',
-    code: 'http://github.com/darinhoy/clinic-service-A6',
+    demo: '#',
+    code: '#',
   },
-   {
-    image: 'src/assets/images/clinic.png',
-    title: 'Web Design (Clinic Service Websites)',
+  {
+    image: 'https://i.pinimg.com/736x/e8/a7/73/e8a773ad8e8dfde46b074a69942242d0.jpg',
+    title: 'School Management System',
     date: 'Oct 17, 2024 - Nov 6, 2024',
     role: 'Team Leader',
     category: 'School Project',
     details: [
-      'Designed UI using Figma.',
-      'Built responsive websites with HTML, SASS, and CSS.',
-      'Focused on user-friendly layout and accessibility.',
+      'Used OOP(TypeScript).',
+      'Showed console.log for display the result.',
+      'Developed using Principle of OOP.',
     ],
-    demo: 'https://clinic-service-a6.netlify.app/',
-    code: 'http://github.com/darinhoy/clinic-service-A6',
+    demo: '#',
+    code: '#',
   }
-  
-];
+]
 
 const filteredExperiences = computed(() => {
   if (selectedCategory.value === 'ALL Experiences') {
-    return experiences;
+    return experiences
   }
-  return experiences.filter((exp) => exp.category === selectedCategory.value);
-});
-
-const hoverEffect = (cat) => {
-  if (selectedCategory.value !== cat) {
-    console.log(`Hovered over ${cat}`);
-  }
-};
+  return experiences.filter((exp) => exp.category === selectedCategory.value)
+})
 
 onMounted(() => {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          entry.target.classList.add('visible')
+          observer.unobserve(entry.target)
         }
-      });
+      })
     },
     { threshold: 0.1 }
-  );
+  )
 
-  document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
-});
+  document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el))
+})
 </script>
 
 <style scoped>
@@ -168,7 +167,6 @@ onMounted(() => {
 .tech-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  /* background: linear-gradient(135deg, #6b46c1, #4c51bf); */
 }
 
 .tech-card:hover h3,
