@@ -76,8 +76,7 @@ const experiences = ref([
       'Hosted static website on AWS.',
       'Deployed WordPress website on Ubuntu server.',
     ],
-    demo: 'https://example.com/software-demo', // Replace with actual demo URL
-    code: 'https://github.com/example/software-repo', // Replace with actual code URL
+
   },
   {
     title: 'Automated Document Generation',
@@ -88,8 +87,20 @@ const experiences = ref([
       'Organized data in Microsoft Excel.',
       'Developed Python algorithm for core functionality.',
     ],
-    demo: 'https://example.com/docgen-demo', // Replace with actual demo URL
-    code: 'https://github.com/example/docgen-repo', // Replace with actual code URL
+    demo: '', // Replace with actual demo URL
+    code: 'https://github.com/lymengmeng09/G12_AUTOMATED-DOCUMENT-GENERATION-', // Replace with actual code URL
+  },
+    {
+    title: 'Note Taker App',
+    date: 'Jan 12, 2024 - Jan 26, 2024',
+    role: 'Developer',
+    details: [
+      'Designed UI using Figma.',
+      'Implemented front-end with HTML, CSS, Bootstrap, and JavaScript.',
+      'Used Git and GitHub for version control.',
+    ],
+    demo: 'https://note-taker-app-group5.netlify.app/', // Replace with actual demo URL
+    code: 'https://github.com/Sokleap-Seng/project-Note-Taker-G5', // Replace with actual code URL
   },
   {
     title: 'Web Design (Clinic Service Websites)',
@@ -100,8 +111,8 @@ const experiences = ref([
       'Built responsive websites with HTML, SASS, and CSS.',
       'Focused on user-friendly layout and accessibility.',
     ],
-    demo: 'https://example.com/webdesign-demo', // Replace with actual demo URL
-    code: 'https://github.com/example/webdesign-repo', // Replace with actual code URL
+    demo: 'https://clinic-service-a6.netlify.app/', // Replace with actual demo URL
+    code: 'https://github.com/darinhoy/clinic-service-A6', // Replace with actual code URL
   },
 ])
 
